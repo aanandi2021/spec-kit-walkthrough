@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spec Kit, step by step</title>
+  <link rel="stylesheet" href="walkthrough.css">
+</head>
+<body>
+  <header id="bar">
+    <div class="brand">
+      <span class="series">Spec Kit, step by step</span>
+      <h1 id="proj-title">…</h1>
+    </div>
+    <label class="ctl">Project
+      <select id="project" aria-label="Project"></select>
+    </label>
+    <button id="edit-project" title="Edit this project's details">✎ Details</button>
+    <button id="new-project" title="Start a new project">＋ New</button>
+    <button id="export" title="Download progress and prompts as a Markdown note for Obsidian">⬇ Obsidian note</button>
+    <button id="artifacts-btn" title="Read this repo's real Spec Kit files">📄 Example files</button>
+  </header>
+
+  <nav id="flow" aria-label="Steps"><svg id="flow-svg" role="img" aria-label="Spec Kit flow"></svg></nav>
+
+  <main id="main">
+    <article id="step" aria-live="polite"></article>
+    <aside id="side">
+      <section id="progress"></section>
+      <section id="history"></section>
+    </aside>
+  </main>
+
+  <dialog id="details">
+    <form method="dialog" id="details-form">
+      <h2>Project details</h2>
+      <p class="muted">These fill in the prompts at each step. Leave anything blank you haven't decided yet. Saved in this browser only.</p>
+      <div id="fields"></div>
+      <menu>
+        <button value="cancel" formnovalidate>Cancel</button>
+        <button id="delete-project" value="delete" class="danger" formnovalidate>Delete project</button>
+        <button value="save" class="primary">Save</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <dialog id="viewer">
+    <div class="viewer-head">
+      <select id="viewer-file" aria-label="File"></select>
+      <a id="viewer-gh" target="_blank" rel="noopener">on GitHub ↗</a>
+      <button id="viewer-close" aria-label="Close">×</button>
+    </div>
+    <div id="viewer-body" class="md"></div>
+  </dialog>
+
+  <div id="toast" role="status" hidden></div>
+
+  <script src="../../app/version.js"></script>
+  <script src="../../app/js/version-badge.js"></script>
+  <script src="vendor/marked.umd.js"></script>
+  <script src="artifacts.js"></script>
+  <script src="steps.js"></script>
+  <script src="walkthrough.js"></script>
+</body>
+</html>
